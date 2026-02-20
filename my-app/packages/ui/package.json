@@ -4,7 +4,9 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "lint": "eslint . --max-warnings 0"
+    "lint": "eslint . --max-warnings 0",
+    "build": "tsup",
+    "dev": "tsup --watch"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",
@@ -28,9 +30,15 @@
     "@workspace/typescript-config": "workspace:*",
     "eslint": "^9.39.2",
     "tailwindcss": "^4.1.18",
+    "tsup": "^8.5.1",
     "typescript": "^5.9.3"
   },
   "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
     "./globals.css": "./src/styles/globals.css",
     "./postcss.config": "./postcss.config.mjs",
     "./lib/*": "./src/lib/*.ts",

@@ -3,7 +3,8 @@
   "compilerOptions": {
     "paths": {
       "@/*": ["./*"],
-      "@workspace/ui/*": ["../../packages/ui/src/*"]
+      "@workspace/ui/*": ["../../packages/ui/src/*"],
+      "@repo/schemas": ["../../packages/schemas/dist/index"]
     },
     "plugins": [
       {
@@ -12,6 +13,7 @@
     ]
   },
   "include": [
+    "global.d.ts",
     "src",
     "next-env.d.ts",
     "next.config.ts",
