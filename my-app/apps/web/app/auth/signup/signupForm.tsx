@@ -1,4 +1,5 @@
-import {Input, Label} from '@workspace/ui/index'
+"use client";
+import {Input, Label} from '@repo/ui'
 import SubmitButton from '@/components/submitButton'
 import React from 'react'
 import { CreateUserInput } from "@repo/schemas";

@@ -1,13 +1,11 @@
 {
   "name": "@repo/schemas",
   "version": "1.0.0",
-  "description": "",
-  "type": "module",
   "main": "./dist/index.cjs",
-  "types": "./dist/index.d.ts",
   "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": ["dist"],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tsup --watch",
     "build": "tsup"
   },
@@ -18,14 +16,11 @@
       "require": "./dist/index.cjs"
     }
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "packageManager": "pnpm@10.4.1",
   "dependencies": {
     "zod": "^3.25.76"
   },
   "devDependencies": {
-    "tsup": "^8.5.1"
+    "tsup": "^8.5.1",
+    "@repo/typescript-config": "workspace:*"
   }
 }

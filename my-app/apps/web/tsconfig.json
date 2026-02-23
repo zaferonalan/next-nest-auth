@@ -1,11 +1,12 @@
 {
-  "extends": "@workspace/typescript-config/nextjs.json",
+  "extends": "../../packages/typescript-config/nextjs.json",
   "compilerOptions": {
     "paths": {
       "@/*": ["./*"],
-      "@workspace/ui/*": ["../../packages/ui/src/*"],
-      "@repo/schemas": ["../../packages/schemas/dist/index"]
+      "@repo/ui/*": ["../../packages/ui/src/*"]
     },
+    "outDir": "./dist",
+    "incremental": true,
     "plugins": [
       {
         "name": "next"
@@ -13,13 +14,11 @@
     ]
   },
   "include": [
-    "global.d.ts",
-    "src",
     "next-env.d.ts",
-    "next.config.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "src/global.d.ts"
   ],
-  "exclude": ["dist","node_modules"]
+  "exclude": ["node_modules"]
 }

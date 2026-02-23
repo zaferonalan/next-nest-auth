@@ -8,10 +8,10 @@ importers:
 
   .:
     devDependencies:
-      '@workspace/eslint-config':
+      '@repo/eslint-config':
         specifier: workspace:*
         version: link:packages/eslint-config
-      '@workspace/typescript-config':
+      '@repo/typescript-config':
         specifier: workspace:*
         version: link:packages/typescript-config
       prettier:
@@ -78,6 +78,9 @@ importers:
       '@nestjs/testing':
         specifier: ^11.0.1
         version: 11.1.14(@nestjs/common@11.1.14(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.14)(@nestjs/platform-express@11.1.14)
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
       '@types/express':
         specifier: ^5.0.0
         version: 5.0.6
@@ -138,7 +141,10 @@ importers:
       '@hookform/resolvers':
         specifier: ^5.2.2
         version: 5.2.2(react-hook-form@7.71.1(react@19.2.4))
-      '@workspace/ui':
+      '@repo/schemas':
+        specifier: workspace:*
+        version: link:../../packages/schemas
+      '@repo/ui':
         specifier: workspace:*
         version: link:../../packages/ui
       lucide-react:
@@ -160,6 +166,12 @@ importers:
         specifier: ^7.71.1
         version: 7.71.1(react@19.2.4)
     devDependencies:
+      '@repo/eslint-config':
+        specifier: workspace:^
+        version: link:../../packages/eslint-config
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
       '@tailwindcss/postcss':
         specifier: ^4.1.18
         version: 4.2.0
@@ -172,12 +184,6 @@ importers:
       '@types/react-dom':
         specifier: ^19.2.3
         version: 19.2.3(@types/react@19.2.14)
-      '@workspace/eslint-config':
-        specifier: workspace:^
-        version: link:../../packages/eslint-config
-      '@workspace/typescript-config':
-        specifier: workspace:*
-        version: link:../../packages/typescript-config
       eslint:
         specifier: ^9.39.2
         version: 9.39.2(jiti@2.6.1)
@@ -200,6 +206,9 @@ importers:
         specifier: ^8.18.0
         version: 8.18.0
     devDependencies:
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
       '@types/pg':
         specifier: ^8.16.0
         version: 8.16.0
@@ -255,6 +264,9 @@ importers:
         specifier: ^3.25.76
         version: 3.25.76
     devDependencies:
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
       tsup:
         specifier: ^8.5.1
         version: 8.5.1(jiti@2.6.1)(postcss@8.5.6)(typescript@5.9.3)
@@ -294,6 +306,12 @@ importers:
         specifier: ^3.25.76
         version: 3.25.76
     devDependencies:
+      '@repo/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
       '@tailwindcss/postcss':
         specifier: ^4.1.18
         version: 4.2.0
@@ -309,12 +327,6 @@ importers:
       '@types/react-dom':
         specifier: ^19.2.3
         version: 19.2.3(@types/react@19.2.14)
-      '@workspace/eslint-config':
-        specifier: workspace:*
-        version: link:../eslint-config
-      '@workspace/typescript-config':
-        specifier: workspace:*
-        version: link:../typescript-config
       eslint:
         specifier: ^9.39.2
         version: 9.39.2(jiti@2.6.1)

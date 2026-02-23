@@ -1,5 +1,5 @@
 "use client"
-import { Button } from '@workspace/ui/index';
+import { Button } from '@repo/ui';
 import React from 'react'
 import { useFormStatus } from 'react-dom'
 
