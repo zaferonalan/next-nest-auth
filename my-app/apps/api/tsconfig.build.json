@@ -1,4 +1,18 @@
+// {
+//   "extends": "./tsconfig.json",
+//   "exclude": ["node_modules", "test", "dist", "**/*spec.ts"]
+// }
 {
   "extends": "./tsconfig.json",
-  "exclude": ["node_modules", "test", "dist", "**/*spec.ts"]
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    "composite": false,
+    "incremental": false,
+
+    "declaration": false,
+    "declarationMap": false
+  },
+  "exclude": ["node_modules", "test", "dist", "**/*.spec.ts"]
 }

@@ -9,4 +9,9 @@ export default defineConfig({
   clean: true,
   target: 'es2022',
   outDir: 'dist',
+   outExtension({ format }) {
+    return format === "cjs"
+      ? { js: ".cjs" }
+      : { js: ".js" };
+  },
 })
