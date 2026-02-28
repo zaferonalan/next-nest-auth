@@ -3,7 +3,7 @@ import {
   Injectable,
   UnauthorizedException,
 } from '@nestjs/common';
-import type { CreateUserInput, loginInput } from '@repo/schemas';
+import type { CreateUserInput } from '@repo/schemas';
 import { UserService } from '../user/user.service';
 import { verifyPassword } from '../common/security/password';
 
@@ -20,16 +20,12 @@ export class AuthService {
     return this.userService.create(createUserDto);
   }
 
-  async login(loginDto: loginInput) {
-    const user = await this.userService.findByEmail(loginDto.email);
+  async validateLocalUser(email: string, password: string) {
+    const user = await this.userService.findByEmail(email);
     if (!user || !user.password) {
-      throw new UnauthorizedException('Wrong credential');
+      throw new UnauthorizedException('Wrong Credentials');
     }
-
-    const passwordMatch = await verifyPassword(
-      user.password,
-      loginDto.password,
-    );
+    const passwordMatch = await verifyPassword(user.password, password);
 
     if (!passwordMatch) {
       throw new UnauthorizedException('Invalid Credentials');

@@ -14,6 +14,6 @@ export class AuthController {
 
   @Post('signin')
   login(@Body() dto: LoginDto) {
-    return this.authService.login(dto);
+    return this.authService.validateLocalUser(dto.email, dto.password);
   }
 }
