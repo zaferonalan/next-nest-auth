@@ -1,8 +1,8 @@
 "use server"
 
-import {createUserSchema } from '@repo/schemas';
+import {createUserSchema, loginSchema } from '@repo/schemas';
 import { z } from 'zod';
-import { signup } from '../api/auth';
+import { signup, signIn } from '../api/auth';
 import { redirect } from 'next/navigation';
 
 export type FormState = {
@@ -30,4 +30,24 @@ export async function signupAction(_prevState:FormState, formData:FormData):Prom
     }
 
     redirect('/auth/signin')
+}
+
+export async function signInAction(state: FormState, formData:FormData):Promise<FormState> {
+    const parsed = loginSchema.safeParse(Object.fromEntries(formData))
+
+    if (!parsed.success) return{
+        error: parsed.error.flatten().fieldErrors
+    }
+
+    const res = await signIn(parsed.data)
+
+    if (res.ok) {
+        const result = await res.json()
+        console.log({result});
+    }
+    else {
+        return {
+            message: res.status === 401 ? "Invalid Credentials!" : res.statusText
+        }
+    }
 }
