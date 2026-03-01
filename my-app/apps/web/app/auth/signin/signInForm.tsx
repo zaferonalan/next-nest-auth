@@ -1,21 +1,30 @@
+"use client"
 import SubmitButton from '@/components/submitButton'
+import { signInAction } from '@/lib/actions/auth.actions'
 import { Input, Label } from '@repo/ui'
 import Link from 'next/link'
 import React from 'react'
+import { useFormState } from 'react-dom'
 
 const SignInForm = () => {
+    const[ state, action ] = useFormState(signInAction,undefined)
   return (
-    <form>
+    <form action={action}>
         <div className='flex flex-col gap-2 w-64'>
+            {state?.message && <p className='text-red-500 text-sm'>{state.message}</p>}
             <div>
                 <Label htmlFor='email'>Email</Label>
                 <Input id='email' name='email' placeholder='m@example.com' type='email'/>
             </div>
+            
+            {state?.error?.email && <p className='text-red-500 text-sm'>{state.message}</p>}
 
             <div>
                 <Label htmlFor='password'>Password</Label>
                 <Input id='password' name='password' type='password'/>
             </div>
+            {state?.error?.password && <p className='text-red-500 text-sm'>{state.message}</p>}
+            
             <Link className='text-sm underline' href="#">Forgot your password?</Link>
 
             <SubmitButton>Sign In</SubmitButton>
