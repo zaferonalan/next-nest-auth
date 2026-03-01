@@ -6,6 +6,7 @@ import { AppEnv, mergedEnvSchema } from './apiEnvSchema';
   imports: [
     NestConfig.forRoot({
       isGlobal: true,
+      envFilePath: '../../.env',
       validate(config): AppEnv {
         const result = mergedEnvSchema.safeParse(config);
         if (!result.success) {
