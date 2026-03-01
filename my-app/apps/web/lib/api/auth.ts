@@ -14,7 +14,7 @@ export async function signIn(data: loginInput) {
     return fetch(`${BACKEND_URL}/auth/signin`, {
         method: "POST",
         headers: {
-            "Content-Type": "applicaition/json"
+            "Content-Type": "application/json"
         },
         body: JSON.stringify(data)
     })
