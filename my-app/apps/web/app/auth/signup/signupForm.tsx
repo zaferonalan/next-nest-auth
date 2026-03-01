@@ -27,7 +27,7 @@ const SignupForm = () => {
 
             <div>
                 <Label className='mb-2' htmlFor='lastname'>LastName</Label>
-                <Input {...register('lastName')} className='focus-visible:ring-0' id='lastname' name='lastname' placeholder='Önalan'/>
+                <Input {...register('lastName')} className='focus-visible:ring-0' id='lastname' name='lastName' placeholder='Önalan'/>
                 {errors.lastName && <p className='text-red-500'>{errors.lastName.message}</p>}
             </div>
             {state?.error?.lastName && (<p className='text-sm text-red-500'>{state.error.lastName}</p>)}
