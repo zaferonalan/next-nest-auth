@@ -17,13 +17,13 @@ const SignInForm = () => {
                 <Input id='email' name='email' placeholder='m@example.com' type='email'/>
             </div>
             
-            {state?.error?.email && <p className='text-red-500 text-sm'>{state.message}</p>}
+            {state?.error?.email && ( <p className='text-red-500 text-sm'>{state.error.email}</p>)}
 
             <div>
                 <Label htmlFor='password'>Password</Label>
                 <Input id='password' name='password' type='password'/>
             </div>
-            {state?.error?.password && <p className='text-red-500 text-sm'>{state.message}</p>}
+            {state?.error?.password && (<p className='text-red-500 text-sm'>{state.error.password}</p>)}
             
             <Link className='text-sm underline' href="#">Forgot your password?</Link>
 
