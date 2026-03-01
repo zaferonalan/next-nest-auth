@@ -1,14 +1,14 @@
 "use client";
 import {Input, Label} from '@repo/ui'
 import SubmitButton from '@/components/submitButton'
-import React from 'react'
+import React, { useActionState } from 'react'
 import { CreateUserInput } from "@repo/schemas";
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { useFormState } from 'react-dom';
 import { signupAction } from '@/lib/actions/auth.actions';
 
 const SignupForm = () => {
-    const [state, action]= useFormState(signupAction, undefined)
+    const [state, action]= useActionState(signupAction, undefined)
     const {register, handleSubmit, formState:{errors}} = useForm<CreateUserInput>()
 
     const onSubmit:SubmitHandler<CreateUserInput> = (data) => {
