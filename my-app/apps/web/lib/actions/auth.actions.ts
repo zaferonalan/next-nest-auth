@@ -32,7 +32,12 @@ export async function signupAction(_prevState:FormState, formData:FormData):Prom
     redirect('/auth/signin')
 }
 
-export async function signInAction(state: FormState, formData:FormData):Promise<FormState> {
+export type signInFormState = {
+    error?: z.inferFlattenedErrors<typeof loginSchema>["fieldErrors"],
+    message?: string
+}| undefined
+
+export async function signInAction(state: signInFormState, formData:FormData):Promise<signInFormState> {
     const parsed = loginSchema.safeParse(Object.fromEntries(formData))
 
     if (!parsed.success) return{

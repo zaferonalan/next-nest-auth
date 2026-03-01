@@ -3,11 +3,10 @@ import SubmitButton from '@/components/submitButton'
 import { signInAction } from '@/lib/actions/auth.actions'
 import { Input, Label } from '@repo/ui'
 import Link from 'next/link'
-import React from 'react'
-import { useFormState } from 'react-dom'
+import React, { useActionState } from 'react'
 
 const SignInForm = () => {
-    const[ state, action ] = useFormState(signInAction,undefined)
+    const[ state, action ] = useActionState(signInAction,undefined)
   return (
     <form action={action}>
         <div className='flex flex-col gap-2 w-64'>
