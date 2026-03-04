@@ -1,6 +1,6 @@
 "use server"
 
-import {createUserSchema, loginSchema } from '@repo/schemas';
+import {authUserSchema, createUserSchema, loginSchema } from '@repo/schemas';
 import { z } from 'zod';
 import { signup, signIn } from '../api/auth';
 import { redirect } from 'next/navigation';
@@ -48,7 +48,8 @@ export async function signInAction(state: signInFormState, formData:FormData):Pr
     const res = await signIn(parsed.data)
 
     if (res.ok) {
-        const result = await res.json()
+        const response = await res.json()
+        const result = authUserSchema.parse(response)
         await createSession({
             user: {
                 id: result.id,
