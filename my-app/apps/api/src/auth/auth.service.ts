@@ -6,6 +6,7 @@ import {
 import type { CreateUserInput } from '@repo/schemas';
 import { UserService } from '../user/user.service';
 import { verifyPassword } from '../common/security/password';
+import { AuthUser } from '@repo/schemas';
 @Injectable()
 export class AuthService {
   /**
@@ -19,7 +20,7 @@ export class AuthService {
     return this.userService.create(createUserDto);
   }
 
-  async validateLocalUser(email: string, password: string) {
+  async validateLocalUser(email: string, password: string): Promise<AuthUser> {
     const user = await this.userService.findByEmail(email);
     if (!user || !user.password) {
       throw new UnauthorizedException('Wrong Credentials');
