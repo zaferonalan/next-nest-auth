@@ -4,6 +4,7 @@ import {createUserSchema, loginSchema } from '@repo/schemas';
 import { z } from 'zod';
 import { signup, signIn } from '../api/auth';
 import { redirect } from 'next/navigation';
+import { createSession } from '../sessions/session';
 
 export type FormState = {
     error?:z.inferFlattenedErrors<typeof createUserSchema>['fieldErrors'];
@@ -48,6 +49,12 @@ export async function signInAction(state: signInFormState, formData:FormData):Pr
 
     if (res.ok) {
         const result = await res.json()
+        await createSession({
+            user: {
+                id: result.id,
+                name: result.name
+            }
+        })
         console.log({result});
     }
     else {

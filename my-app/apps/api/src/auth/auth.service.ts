@@ -6,7 +6,6 @@ import {
 import type { CreateUserInput } from '@repo/schemas';
 import { UserService } from '../user/user.service';
 import { verifyPassword } from '../common/security/password';
-
 @Injectable()
 export class AuthService {
   /**

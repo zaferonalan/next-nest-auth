@@ -5,9 +5,6 @@ export const sessionSchema = z.object({
         id: z.string(),
         name: z.string()
     }),
-    
-    accessToken: z.string(),
-    refreshToken: z.string()
 })
 
 export type Session = z.infer<typeof sessionSchema>
