@@ -56,7 +56,7 @@ export async function signInAction(state: signInFormState, formData:FormData):Pr
                 name: result.name
             }
         })
-        console.log({result});
+        redirect("/")
     }
     else {
         return {
