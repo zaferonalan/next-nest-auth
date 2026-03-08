@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google"
 
 import "@repo/ui/globals.css"
 import { Providers } from "../components/providers"
+import Appbar from "@/components/Appbar"
 
 const fontSans = Geist({
   subsets: ["latin"],
@@ -23,6 +24,7 @@ export default function RootLayout({
       <body
         className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased `}
         >
+          <Appbar/>
           {children}
         {/* <Providers>
 
